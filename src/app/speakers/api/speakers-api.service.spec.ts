@@ -33,7 +33,7 @@ describe('SpeakersApiService', () => {
       });
 
       const req = httpTestingController.expectOne(
-        `https://randomuser.me/api/1.4/?page=0&results=20&seed=srt`
+        `https://randomuser.me/api/1.4/?page=0&results=20&seed=srt&inc=gender,name,dob,location,phone,email`
       );
 
       expect(req.request.method).toEqual('GET');

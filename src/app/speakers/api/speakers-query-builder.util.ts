@@ -7,6 +7,7 @@ export const queryBuilder = (data: SpeakersQuery) => {
     page: data.pageIndex,
     results: PAGE_SIZE,
     seed: 'srt',
+    inc: 'gender,name,dob,location,phone,email',
   };
 
   return new HttpParams().appendAll(queryTokens);
