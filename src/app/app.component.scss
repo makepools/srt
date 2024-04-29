@@ -1,0 +1,23 @@
+header {
+  height: 67px;
+  background-color: var(--primaryColour);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-inline-start: 8px;
+
+  img {
+    max-width: 80px;
+  }
+}
+
+.main {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 16px;
+}
