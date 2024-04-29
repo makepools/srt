@@ -1,3 +1,12 @@
-<ng-container *ngIf="speaker$ | async" />
-
+@if (error()) {
+<div class="error-message">Unable to retrieve speakers.</div>
+} @else {
 <srt-table [data]="speakers()" [loading]="loading()" />
+<mat-paginator
+  [pageIndex]="pageIndex()"
+  [pageSize]="20"
+  [length]="totalResults()"
+  showFirstLastButtons
+  (page)="changedPage($event)"
+/>
+}
