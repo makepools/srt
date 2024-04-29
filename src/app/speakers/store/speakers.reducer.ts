@@ -5,6 +5,7 @@ import {
   loadSpeakersSuccess,
   loadSpeakers,
 } from './speakers.actions';
+import { PAGE_SIZE } from '../constants/speakers.constants';
 
 export enum SrtStatus {
   Initial = 'initial',
@@ -40,7 +41,7 @@ export const speakersReducer = createReducer(
     const speakers = payload.speakers.map((speaker, index) => {
       return {
         ...speaker,
-        uuid: (state.page - 1) * 20 + (index + 1), // create a unique ID for each row, in reality this would come back from the API
+        uuid: (state.page - 1) * PAGE_SIZE + (index + 1), // create a unique ID for each row, in reality this would come back from the API
       };
     });
 

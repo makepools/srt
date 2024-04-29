@@ -1,3 +1,18 @@
 .error-message {
   color: red;
 }
+
+@media screen and (max-width: 600px) {
+  form {
+    margin-bottom: 16px;
+  }
+
+  button {
+    width: 100%;
+    margin-inline-start: 0;
+  }
+
+  mat-form-field {
+    display: block;
+  }
+}
