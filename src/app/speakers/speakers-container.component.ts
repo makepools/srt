@@ -51,14 +51,6 @@ export class SpeakersContainerComponent {
     }
   );
 
-  readonly speaker$ = this.store.select(speakersSelector).pipe(
-    tap((speakers) => {
-      if (speakers.length === 0) {
-        this.store.dispatch(loadSpeakers({ page: 1 }));
-      }
-    })
-  );
-
   readonly loading = toSignal(
     this.store
       .select(speakersStatusSelector)
