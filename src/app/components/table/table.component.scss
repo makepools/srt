@@ -45,6 +45,12 @@ tbody {
         border-bottom-right-radius: 12px;
       }
     }
+
+    &:hover {
+      background-color: var(--primaryColour);
+      color: #fff;
+      cursor: pointer;
+    }
   }
 
   td {
