@@ -1,1 +1,9 @@
+<ng-container *ngIf="speaker$ | async" />
+
+@if (error()) {
+<div class="error-message"><p>Unable to retrieve speakers.</p></div>
+} @else {
+<srt-list [data]="speaker()" [loading]="loading()" />
+}
+
 <srt-button [routerLink]="'/speakers'">Back</srt-button>

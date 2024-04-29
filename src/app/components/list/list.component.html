@@ -1,0 +1,10 @@
+@if (loading) {
+<div class="loading"><mat-spinner /></div>
+} @else {
+<dl>
+  @for (item of data; track item.term) {
+  <dt>{{ item.term }}</dt>
+  <dd>{{ item.description }}</dd>
+  }
+</dl>
+}
