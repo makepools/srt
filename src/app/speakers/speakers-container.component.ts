@@ -13,6 +13,7 @@ import { map, tap } from 'rxjs';
 import { TableComponent } from '../components/table/table.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'srt-speakers',
@@ -67,7 +68,11 @@ export class SpeakersContainerComponent {
     }
   );
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private router: Router) {}
+
+  navigateTo(index: number) {
+    this.router.navigate([`speakers/${index}`]);
+  }
 
   changedPage(data: PageEvent) {
     this.store.dispatch(loadSpeakers({ page: data.pageIndex + 1 }));

@@ -13,7 +13,7 @@
     </thead>
     <tbody role="rowgroup">
       @for (row of data; track row.uuid) {
-      <tr role="row">
+      <tr role="row" (click)="clicked(row.uuid)">
         <td>{{ row.name.first }} {{ row.name.last }}</td>
         <td>{{ row.gender }}</td>
         <td>{{ row.dob.age.toString() }}</td>

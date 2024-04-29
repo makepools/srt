@@ -23,4 +23,11 @@ export class TableComponent {
 
   @Input()
   loading: boolean;
+
+  @Output()
+  clickedRowId = new EventEmitter<number>();
+
+  clicked(id: number) {
+    this.clickedRowId.emit(id);
+  }
 }

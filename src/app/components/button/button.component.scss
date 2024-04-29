@@ -1,0 +1,21 @@
+button {
+  background-color: var(--accentColour);
+  color: #fff;
+  min-height: 56px;
+  min-width: 100px;
+  border: none;
+  border-radius: 30px;
+  font-family: Aktiv Grotesk, serif;
+  font-size: 1em;
+  margin-inline-start: 8px;
+
+  &:hover {
+    background-color: var(--accentColourDarkened);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: #e1dfe4;
+    color: #a3a2a7;
+  }
+}

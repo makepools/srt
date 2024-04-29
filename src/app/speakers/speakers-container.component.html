@@ -1,7 +1,11 @@
 @if (error()) {
 <div class="error-message">Unable to retrieve speakers.</div>
 } @else {
-<srt-table [data]="speakers()" [loading]="loading()" />
+<srt-table
+  [data]="speakers()"
+  [loading]="loading()"
+  (clickedRowId)="navigateTo($event)"
+/>
 <mat-paginator
   [pageIndex]="pageIndex()"
   [pageSize]="20"
