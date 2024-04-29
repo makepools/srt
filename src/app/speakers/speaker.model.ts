@@ -1,4 +1,5 @@
 export interface Speaker {
+  uuid?: number; // create a unique ID for each row, in reality this would come back from the API
   gender: string;
   name: { title: string; first: string; last: string };
   location: {

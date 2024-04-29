@@ -36,7 +36,14 @@ export const speakersReducer = createReducer(
     page: payload.page,
     status: SrtStatus.Loading,
   })),
-  on(loadSpeakersSuccess, (state, { speakers }) => {
+  on(loadSpeakersSuccess, (state, payload) => {
+    const speakers = payload.speakers.map((speaker, index) => {
+      return {
+        ...speaker,
+        uuid: (state.page - 1) * 20 + (index + 1), // create a unique ID for each row, in reality this would come back from the API
+      };
+    });
+
     return {
       ...state,
       speakers,

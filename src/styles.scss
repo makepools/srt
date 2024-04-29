@@ -2,4 +2,14 @@
 
 html {
   --primaryColour: #0c0128;
+  --table-zebra-stripe: #f3f2f7;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

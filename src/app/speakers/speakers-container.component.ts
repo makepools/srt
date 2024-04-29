@@ -1,8 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadSpeakers, speakersSelector } from './store';
+import {
+  SrtStatus,
+  loadSpeakers,
+  speakersSelector,
+  speakersStatusSelector,
+} from './store';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { tap } from 'rxjs';
+import { map, tap } from 'rxjs';
+import { TableComponent } from '../components/table/table.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'srt-speakers',
@@ -10,7 +17,7 @@ import { tap } from 'rxjs';
   templateUrl: './speakers-container.component.html',
   styleUrl: './speakers-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgIf, AsyncPipe],
+  imports: [NgIf, AsyncPipe, TableComponent],
 })
 export class SpeakersContainerComponent {
   readonly speaker$ = this.store.select(speakersSelector).pipe(
@@ -19,6 +26,19 @@ export class SpeakersContainerComponent {
         this.store.dispatch(loadSpeakers({ page: 1 }));
       }
     })
+  );
+
+  readonly speakers = toSignal(this.speaker$, {
+    initialValue: [],
+  });
+
+  readonly loading = toSignal(
+    this.store
+      .select(speakersStatusSelector)
+      .pipe(map((status) => status !== SrtStatus.Success)),
+    {
+      initialValue: false,
+    }
   );
 
   constructor(private store: Store) {}

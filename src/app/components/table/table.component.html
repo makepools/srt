@@ -1,0 +1,28 @@
+@if (loading) {
+<div class="loading"><mat-spinner /></div>
+} @else { @if (data.length) {
+<div class="table-container">
+  <table role="table" class="srt-table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">Name</th>
+        <th role="columnheader">Gender</th>
+        <th role="columnheader">Age</th>
+        <th role="columnheader">Country</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      @for (row of data; track row.uuid) {
+      <tr role="row">
+        <td>{{ row.name.first }} {{ row.name.last }}</td>
+        <td>{{ row.gender }}</td>
+        <td>{{ row.dob.age.toString() }}</td>
+        <td>{{ row.location.country }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+} @else {
+<div>There are no results for your current filter options.</div>
+} }
